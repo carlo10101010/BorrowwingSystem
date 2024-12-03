@@ -25,8 +25,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  border-right: 2px solid #1a2939;
 }
 
 .sidebar .logo-section {
@@ -39,7 +37,8 @@ body {
   margin-bottom: 20px;
 }
 
-.sidebar .menu-links a {
+.sidebar .menu-links a,
+.sidebar .bottom-links a {
   color: white;
   text-decoration: none;
   display: block;
@@ -50,43 +49,62 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.sidebar .menu-links a:hover {
+.sidebar .menu-links a:hover,
+.sidebar .bottom-links a:hover {
   background-color: #1a2939;
 }
 
-/* Sidebar */
 .sidebar .bottom-links {
   margin-top: auto;
-  color: white; 
-  }
-  
-  .sidebar .bottom-links a {
-  color: white; 
+  color: rgb(163, 144, 144);
+}
+
+/* Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #1a2939;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 15px;
   text-decoration: none;
   display: block;
-  margin: 15px 0;
-  padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+  background-color: #263548;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: white;
   font-size: 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  }
-  
-  .sidebar .bottom-links a:hover {
-  background-color: #1a2939;
-  }
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
 
 /* Wrapper */
 .wrapper {
   margin-left: 250px;
   padding: 20px;
-}
-
-.card .card-header{
-  padding-top: 50px;
-}
-
-.card .card-body{
-  padding-bottom: 80px;
 }
 
 /* Dashboard Main Title */
@@ -102,8 +120,7 @@ body {
   display: flex;
   gap: 30px;
   margin-bottom: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0 30px;
 }
 
 .dashboard-cards .card {
@@ -114,55 +131,33 @@ body {
   text-align: center;
 }
 
-
 .dashboard-cards .card-header {
   font-size: 24px;
   font-weight: bold;
   color: #333;
-  background-color: #F8B400;
+  background-color: #13afdf;
+  padding: 20px;
 }
-
-.dashboard-cards .card-body {
-  font-size: 22px;
-  color: #2d3a3a;
-  font-weight: 600;
-}
-
 
 /* Tables */
 .tables {
   display: flex;
   gap: 30px;
-  padding-left: 30px;
+  padding: 0 30px;
+  flex-wrap: wrap;
 }
 
 .table-container {
-  width: 48%;
-  height: 1px;
-}
-
-.table-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+  width: calc(50% - 15px); /* Ensures spacing with gap */
 }
 
 .table-header h2 {
   font-size: 22px;
-}
-
-.filter-category {
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .table {
   width: 100%;
-  margin-top: 10px;
   border-collapse: collapse;
   background-color: white;
   border-radius: 10px;
